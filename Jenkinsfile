@@ -3,7 +3,7 @@
 node('anuvaad-dev-swarm') {
 
 try {
-   stage('git Checkout'){
+   stage('Checkout'){
       checkout scm
 
     }
@@ -20,7 +20,11 @@ try {
 	                  
 		     '''
 		   }
- 
+	
+	stage('Docker-compose'){
+		pwd
+	sh 'docker-compose -f docker-compose.yml up -d '
+	}
    
  }
 catch (err) {
