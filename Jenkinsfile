@@ -3,8 +3,9 @@
 node('master') {
 
 try {
-   stage('Checkout'){
+   stage('git Checkout'){
       checkout scm
+
     }
    
  }
