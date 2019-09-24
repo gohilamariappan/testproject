@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  an:wquvaad-corpus-node:
+  anuvaad-corpus-node:
     image: gohila/anuvaad-corpus:test
     container_name: anuvaad-corpus-node
     restart: always
