@@ -7,6 +7,20 @@ try {
       checkout scm
 
     }
+	
+	stage('Docker pull') 
+	  withCredentials([string(credentialsId: 'dockerhub_passwd', variable: 'dockerhub_pass')]){
+	   
+	      sh '''
+		  pwd
+		  echo $dockerhub_pass > dockerhub_pass.txt
+	docker login -u gohila -p "$(cat dockerhub_pass.txt)"
+	docker pull gohila/$image_name:$tag_name
+	rm dockerhub_pass.txt
+	                  
+		     '''
+		   }
+ 
    
  }
 catch (err) {
