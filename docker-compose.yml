@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  anuvaad-corpus-node:
+    image: gohila/anuvaad-corpus:test
+    container_name: anuvaad-corpus-node
+    restart: always
+    ports:
+    - "${anuvaad_corpus_port}"
+    
+#  fe-client-node:
+ #   image: gohila/fe-client-node:test
+  #  container_name: fe-client-node
+   # restart: always
+   # ports:
+   # - "${fe_client_node_port}"
