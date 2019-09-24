@@ -14,8 +14,8 @@ try {
 	      sh '''
 		  pwd
 		  echo $dockerhub_pass > dockerhub_pass.txt
-	docker login -u gohila -p "$(cat dockerhub_pass.txt)"
-	docker pull gohila/$image_name:$tag_name
+	sudo docker login -u gohila -p "$(cat dockerhub_pass.txt)"
+	sudo docker pull gohila/$image_name:$tag_name
 	rm dockerhub_pass.txt
 	                  
 		     '''
