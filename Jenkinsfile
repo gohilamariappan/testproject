@@ -24,11 +24,11 @@ try {
 	stage('Docker-compose'){
                 echo env 
 
-sh ''' 
+sh " 
         echo $env;
 	ls -ltr;
 	cp -rpf ./vars/$env.env ./dev.env;
-	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '''
+	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad "
 	}
    
  }
