@@ -25,10 +25,10 @@ try {
                 echo env 
 
 sh """ 
-        echo $env;
-	ls -ltr;
-	cp -rpf ./vars/$env.env ./dev.env;
-	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad """
+        echo \$env;
+//	ls -ltr;
+//	cp -rpf ./vars/$env.env ./dev.env;
+//	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad """
 	}
    
  }
