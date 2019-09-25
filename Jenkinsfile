@@ -7,12 +7,10 @@ try {
       checkout scm
 	   def env = "${env.JOB_BASE_NAME}".split("-").last()
                 echo env  
-		
 		cp -rpf /$pwd/vars/$env.env .
-     
-    }
+      }
 	
-	/*stage('Docker pull') 
+	stage('Docker pull') 
 	  withCredentials([string(credentialsId: 'dockerhub_passwd', variable: 'dockerhub_pass')]){
 	   
 	      sh '''
@@ -25,7 +23,7 @@ try {
 		     '''
 		   }
 	
-	stage('Docker-compose'){
+	/*stage('Docker-compose'){
 		
 		
 	sh 'sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '
