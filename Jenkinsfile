@@ -25,7 +25,7 @@ try {
                 echo env  
 
 sh ''' 
-environment=${env}
+environment= "${env}"
         echo $environment
 	cp -rpf $pwd/vars/${environment}.env .
 	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '''
