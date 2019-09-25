@@ -1,5 +1,4 @@
 #!groovy
-def env = "${env.JOB_BASE_NAME}".split("-").last()
 
 node('anuvaad-dev-swarm') {
 
@@ -22,12 +21,10 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-		
-		
-def src = new File("/home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/vars/${env}.env")
-		
-def dest = new File('/home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/')
-dest << src.text
+		sh '''
+		enviroment ="$JOB_BASE_NAME" | cut -d '-' -f 4
+		echo  "$environment"
+		'''
 
 	}
    
