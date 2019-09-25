@@ -24,6 +24,8 @@ try {
 		sh '''
 		environment=$(echo "$JOB_BASE_NAME" | cut -d '-' -f 4)
                 echo "$environment"
+		cp -rpf ./vars/$environment.env ./dev.env;
+	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad 
 
 		'''
 
