@@ -23,7 +23,7 @@ try {
 	
 	stage('Docker-compose'){
 		pwd
-	sh 'sudo docker-compose -f docker-compose.yml up -d '
+	sh 'sudo docker-compose config | docker stack deploy --compose-file - anuvaad '
 	}
    
  }
