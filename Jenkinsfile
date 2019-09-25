@@ -21,13 +21,13 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-	def env = "${env.JOB_BASE_NAME}".split("-").last()
-                echo env  
+	def environment = "${env.JOB_BASE_NAME}".split("-").last()
+                echo environment  
 
 sh ''' 
-environment= "${env}"
-        echo $environment
-	cp -rpf $pwd/vars/${environment}.env .
+//environment= "${env}"
+       // echo $environment
+	cp -rpf $pwd/vars/+environmnet+.env .
 	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '''
 	}
    
