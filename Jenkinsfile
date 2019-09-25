@@ -24,8 +24,7 @@ try {
 	def env = "${env.JOB_BASE_NAME}".split("-").last()
                 echo env  
 
-		/home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/${env}.env << /home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/vars/${env}.env
-		
+bat 'copy \\pwd\\vars\\"${env}.env" \\pwd\\"${env}.env"'		
 	sh 'sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '
 	}
    
