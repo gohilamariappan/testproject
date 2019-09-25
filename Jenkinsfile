@@ -5,10 +5,11 @@ node('anuvaad-dev-swarm') {
 try {
    stage('Checkout'){
       checkout scm
-
+     def env = "${env.JOB_BASE_NAME}".split("-").last()
+      echo env
     }
 	
-	stage('Docker pull') 
+	/*stage('Docker pull') 
 	  withCredentials([string(credentialsId: 'dockerhub_passwd', variable: 'dockerhub_pass')]){
 	   
 	      sh '''
@@ -24,7 +25,7 @@ try {
 	stage('Docker-compose'){
 		pwd
 	sh 'sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '
-	}
+	}*/
    
  }
 catch (err) {
