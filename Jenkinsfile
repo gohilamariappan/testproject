@@ -22,7 +22,7 @@ try {
 	
 	stage('Docker-compose'){
 		sh '''
-		enviroment ="$JOB_BASE_NAME" | cut -d '-' -f 4
+		enviroment =$(echo"$JOB_BASE_NAME" | cut -d '-' -f 4)
 		echo  "$environment"
 		'''
 
