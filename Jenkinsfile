@@ -22,7 +22,12 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-		new File('./${env}.env') << new File('./vars/${env}.env').text
+		
+		String sourceFilePath = /home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/vars/${env}.env
+                String destinationFilePath = /home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/
+
+ (new AntBuilder()).copy(file: sourceFilePath, tofile: destinationFilePath)
+		
 
 	}
    
