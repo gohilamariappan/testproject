@@ -25,9 +25,9 @@ try {
                 echo env 
 
 sh ''' 
-environment= ${env}
-        echo $environment
-	cp -rpf $pwd/vars/$(environmnet).env .
+        echo $env;
+	ls -ltr;
+	cp -rpf ./vars/$env.env ./dev.env;
 	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '''
 	}
    
