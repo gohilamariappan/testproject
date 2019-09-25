@@ -7,6 +7,11 @@ services:
     restart: always
     ports:
     - "${anuvaadport}"
+    env_file:
+    - ./dev.env
+    environment:
+      MONGO_URL: ${url}
+
     
   fe-client-node:
     image: gohila/fe-client-node:test
