@@ -1,5 +1,6 @@
 #!groovy
-def env
+def env = "${env.JOB_BASE_NAME}".split("-").last()
+
 node('anuvaad-dev-swarm') {
 
 try {
@@ -21,11 +22,10 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-	 env = "${env.JOB_BASE_NAME}".split("-").last()
                 echo env 
 
 sh ''' 
-environment= "${env}"
+environment= ${env}
         echo $environment
 	cp -rpf $pwd/vars/$(environmnet).env .
 	sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '''
