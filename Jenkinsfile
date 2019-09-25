@@ -22,9 +22,12 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-                echo env 
-
-		sh   """ echo \$(env) """
+		script {
+			env1 = env
+		echo env
+		echo env1
+		}
+		sh   "echo ${env1}"
 	}
    
  }
