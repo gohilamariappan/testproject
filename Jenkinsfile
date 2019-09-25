@@ -23,7 +23,8 @@ try {
 	stage('Docker-compose'){
 	def env = "${env.JOB_BASE_NAME}".split("-").last()
                 echo env  
-		bat ' cp -rpf /${pwd}/vars/${env}.env .'
+		/home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/${env}.env/ << /home/deploy/workspace/anuvaad/anuvaad-deploy-to-dev/vars/${env}.env
+	
 		
 	sh 'sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '
 	}
