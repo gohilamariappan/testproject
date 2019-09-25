@@ -23,7 +23,7 @@ try {
 	
 	stage('Docker-compose'){
 		pwd
-	sh 'sudo docker-compose config | docker stack deploy --compose-file - anuvaad '
+	sh 'sudo docker-compose config | sudo docker stack deploy --compose-file - anuvaad '
 	}
    
  }
