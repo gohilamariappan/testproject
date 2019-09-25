@@ -22,11 +22,8 @@ try {
 		   }
 	
 	stage('Docker-compose'){
-		script {
-			env1 = env
-			echo env
-			echo env1
-		}
+		new File('./${env}.env') << new File('./vars/${env}.env').text
+
 	}
    
  }
