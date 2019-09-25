@@ -24,7 +24,7 @@ try {
 	stage('Docker-compose'){
                 echo env 
 
-		sh   ''' echo ${env}; '''
+		sh   """ echo \$(env) """
 	}
    
  }
