@@ -6,17 +6,11 @@ services:
      replicas: 2
     restart: always
     ports:
-    - "${anuvaadport}"
+    - "8081:8081"
     env_file:
     - ./dev.env
     environment:
       MONGO_URL: ${url}
 
     
-  fe-client-node:
-    image: gohila/fe-client-node:test
-    deploy:
-     replicas: 2
-    restart: always
-    ports:
-    - "${feclientport}"
+  
