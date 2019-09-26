@@ -9,21 +9,19 @@ try {
 	
 	stage('Docker pull') 
 	  withCredentials([string(credentialsId: 'dockerhub_passwd', variable: 'dockerhub_pass')]){
-	   	  step ([$class: 'CopyArtifact',
-          projectName: '$build_job_name',
-          filter: 'commit_id.txt']);
+	   	 
 
 	      sh '''
 		  pwd
 		  echo $dockerhub_pass > dockerhub_pass.txt
 	sudo docker login -u gohila -p "$(cat dockerhub_pass.txt)"
-	sudo docker pull gohila/$image_name:`cat commit_id.txt`
+	sudo docker pull gohila/$image_name
 	rm dockerhub_pass.txt
 	                  
 		     '''
 		   }
 	
-	/*stage('Docker-compose'){
+	stage('Docker-compose'){
 		sh '''
 		environment=$(echo "$JOB_BASE_NAME" | cut -d '-' -f 4)
                 echo "$environment"
@@ -31,7 +29,7 @@ try {
 		sudo env image="$image_name" docker stack deploy --compose-file=$compose_file_name anuvaad
 		'''
 
-	}*/
+	}
    
  }
 catch (err) {
