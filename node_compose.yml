@@ -9,7 +9,7 @@ services:
     env_file:
     - ./dev.env
     environment:
-      MONGO_URL: ${url}
+      MONGO_URL: ${MONGO_URL}
 
     
   
