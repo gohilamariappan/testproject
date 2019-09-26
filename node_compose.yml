@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   anuvaad-corpus-node:
-    image: gohila/anuvaad-corpus:test
+    image: gohila/${image}
     deploy:
      replicas: 2
     restart: always
