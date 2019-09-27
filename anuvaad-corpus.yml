@@ -12,7 +12,10 @@ services:
       MONGO_URL: ${URL}
     networks:
     - frontend
-    
+networks:
+  frontend:
+    driver: overlay
+    external: true    
 
     
       
