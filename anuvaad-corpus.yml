@@ -10,6 +10,11 @@ services:
     - ./dev.env
     environment:
       MONGO_URL: ${URL}
+    networks:
+    - frontend
+    
+
+    
       
 
     
